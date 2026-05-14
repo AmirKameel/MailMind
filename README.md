@@ -2,9 +2,6 @@
 
 > AI-first email client — Gmail today, Microsoft 365 + IMAP tomorrow.
 > Built with **Claude Code CLI** + Agent OS methodology. Runtime AI: **OpenAI**.
-
-[![CI](https://github.com/ACTIONS/workflows/ci.yml/badge.svg)](.github/workflows/ci.yml)
-
 ---
 
 ## What is this?
