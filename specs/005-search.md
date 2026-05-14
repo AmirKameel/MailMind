@@ -35,7 +35,7 @@ None for v1. (v2: natural-language → DSL via Claude.)
 ## 8. Acceptance criteria
 1. Typing in the search input fires a server query 300 ms after the last keystroke.
 2. Results are merged by date desc and rendered in `<MessageList>`.
-3. Searching `from:taj@aptask.com` returns matching messages from each provider.
+3. Searching `from:alex@example.com` returns matching messages from each provider.
 4. Result count per provider is shown above the merged list.
 
 ## 9. Tests

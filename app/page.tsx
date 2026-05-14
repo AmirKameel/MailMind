@@ -109,8 +109,22 @@ export default function LandingPage() {
         />
       </section>
 
-      <footer className="container pb-12 text-center font-serif text-lg italic text-muted-foreground">
-        read less, mean more.
+      <footer className="container space-y-4 pb-12">
+        <nav
+          aria-label="Legal"
+          className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground"
+        >
+          <Link href="/privacy" className="min-h-11 underline underline-offset-4 hover:text-foreground">
+            Privacy policy
+          </Link>
+          <span aria-hidden className="select-none text-border">
+            ·
+          </span>
+          <Link href="/terms" className="min-h-11 underline underline-offset-4 hover:text-foreground">
+            Terms of service
+          </Link>
+        </nav>
+        <p className="text-center font-serif text-lg italic text-muted-foreground">read less, mean more.</p>
       </footer>
     </main>
   );
@@ -136,7 +150,7 @@ function Feature({
 
 const SAMPLE = [
   {
-    from: "Taj Haslani",
+    from: "Alex Rivera",
     subject: "Re: MailMind take-home — built with Claude Code",
     preview: "live URL + CLAUDE.md + architecture + workflow attached…",
     t: "2m",
