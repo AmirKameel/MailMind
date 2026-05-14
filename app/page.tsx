@@ -53,9 +53,6 @@ export default function LandingPage() {
               <Link href="/login">open the app</Link>
             </Button>
           </div>
-          <p className="mt-4 font-mono text-[13px] text-muted-foreground">
-            PWA · tokens stay server-side · set OPENAI_API_KEY for summaries, drafts, and priority
-          </p>
         </div>
 
         <div className="relative">
