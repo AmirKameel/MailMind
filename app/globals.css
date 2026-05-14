@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MailMind brand tokens — source: MailMind-Brand-Guidelines.md */
+
+@layer base {
+  :root {
+    --background: oklch(0.99 0.005 95);
+    --foreground: oklch(0.2 0.02 280);
+    --card: oklch(0.995 0.003 95);
+    --card-foreground: oklch(0.2 0.02 280);
+    --popover: oklch(0.995 0.003 95);
+    --popover-foreground: oklch(0.2 0.02 280);
+    --primary: oklch(0.62 0.18 290);
+    --primary-foreground: oklch(0.99 0.005 95);
+    --secondary: oklch(0.96 0.01 280);
+    --secondary-foreground: oklch(0.25 0.03 280);
+    --muted: oklch(0.96 0.01 280);
+    --muted-foreground: oklch(0.5 0.02 280);
+    --accent: oklch(0.85 0.13 75);
+    --accent-foreground: oklch(0.25 0.03 60);
+    --destructive: oklch(0.6 0.2 25);
+    --destructive-foreground: oklch(0.99 0.005 95);
+    --success: oklch(0.72 0.14 160);
+    --warning: oklch(0.78 0.15 70);
+    --ai: oklch(0.7 0.16 320);
+    --ai-foreground: oklch(0.4 0.14 320);
+    --border: oklch(0.92 0.01 280 / 0.65);
+    --input: oklch(0.92 0.01 280 / 0.85);
+    --ring: oklch(0.62 0.18 290);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 28px;
+    --radius-pill: 999px;
+    --radius: 12px;
+    --shadow-sm: 0 1px 2px oklch(0.2 0.02 280 / 0.06);
+    --shadow-md: 0 8px 24px -8px oklch(0.2 0.02 280 / 0.1);
+    --shadow-lg: 0 24px 48px -16px oklch(0.62 0.18 290 / 0.2);
+    --shadow-ai: 0 0 32px oklch(0.7 0.16 320 / 0.35);
+    --gradient-hero: linear-gradient(135deg, oklch(0.62 0.18 290), oklch(0.7 0.16 320));
+    --gradient-ai-glow: radial-gradient(
+      circle at 30% 20%,
+      oklch(0.78 0.15 320 / 0.35),
+      transparent 60%
+    );
+  }
+
+  .dark {
+    --background: oklch(0.18 0.02 280);
+    --foreground: oklch(0.96 0.01 95);
+    --card: oklch(0.2 0.022 280);
+    --card-foreground: oklch(0.96 0.01 95);
+    --popover: oklch(0.2 0.022 280);
+    --popover-foreground: oklch(0.96 0.01 95);
+    --primary: oklch(0.72 0.16 290);
+    --primary-foreground: oklch(0.12 0.02 280);
+    --secondary: oklch(0.24 0.02 280);
+    --secondary-foreground: oklch(0.96 0.01 95);
+    --muted: oklch(0.24 0.02 280);
+    --muted-foreground: oklch(0.72 0.02 280);
+    --accent: oklch(0.82 0.13 75);
+    --accent-foreground: oklch(0.22 0.03 60);
+    --destructive: oklch(0.58 0.18 25);
+    --destructive-foreground: oklch(0.98 0.01 95);
+    --success: oklch(0.65 0.12 160);
+    --warning: oklch(0.78 0.14 70);
+    --ai: oklch(0.78 0.15 320);
+    --ai-foreground: oklch(0.92 0.06 320);
+    --border: oklch(0.3 0.02 280 / 0.55);
+    --input: oklch(0.3 0.02 280 / 0.65);
+    --ring: oklch(0.72 0.16 290);
+    --shadow-sm: 0 1px 2px oklch(0.05 0.02 280 / 0.35);
+    --shadow-md: 0 8px 24px -8px oklch(0.05 0.02 280 / 0.45);
+    --shadow-lg: 0 24px 48px -16px oklch(0.55 0.15 290 / 0.25);
+    --shadow-ai: 0 0 32px oklch(0.75 0.14 320 / 0.28);
+    --gradient-hero: linear-gradient(135deg, oklch(0.72 0.16 290), oklch(0.78 0.15 320));
+    --gradient-ai-glow: radial-gradient(
+      circle at 30% 20%,
+      oklch(0.78 0.15 320 / 0.25),
+      transparent 60%
+    );
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html,
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer utilities {
+  .shimmer {
+    background-image: linear-gradient(
+      90deg,
+      oklch(0.96 0.01 280) 0%,
+      oklch(0.99 0.005 95) 50%,
+      oklch(0.96 0.01 280) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+
+  .dark .shimmer {
+    background-image: linear-gradient(
+      90deg,
+      oklch(0.24 0.02 280) 0%,
+      oklch(0.28 0.02 280) 50%,
+      oklch(0.24 0.02 280) 100%
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

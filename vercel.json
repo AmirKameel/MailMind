@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "prisma generate && next build",
+  "regions": ["iad1"],
+  "functions": {
+    "app/api/imap/**/*.ts": { "maxDuration": 60, "memory": 1024 },
+    "app/api/ai/**/*.ts": { "maxDuration": 30 },
+    "app/api/messages/**/*.ts": { "maxDuration": 30 }
+  }
+}

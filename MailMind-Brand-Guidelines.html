@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MailMind — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: oklch(0.99 0.005 95);
+    --fg: oklch(0.20 0.02 280);
+    --primary: oklch(0.62 0.18 290);
+    --primary-fg: oklch(0.99 0.005 95);
+    --accent: oklch(0.85 0.13 75);
+    --accent-fg: oklch(0.25 0.03 60);
+    --muted: oklch(0.96 0.01 280);
+    --muted-fg: oklch(0.50 0.02 280);
+    --border: oklch(0.92 0.01 280);
+    --success: oklch(0.72 0.14 160);
+    --warning: oklch(0.78 0.15 70);
+    --destructive: oklch(0.60 0.20 25);
+    --ai: oklch(0.70 0.16 320);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 28px;
+    --shadow-sm: 0 1px 2px oklch(0.20 0.02 280 / 0.06);
+    --shadow-md: 0 8px 24px -8px oklch(0.20 0.02 280 / 0.10);
+    --shadow-lg: 0 24px 48px -16px oklch(0.62 0.18 290 / 0.20);
+    --shadow-ai: 0 0 32px oklch(0.70 0.16 320 / 0.35);
+    --gradient-hero: linear-gradient(135deg, oklch(0.62 0.18 290), oklch(0.70 0.16 320));
+    --gradient-ai-glow: radial-gradient(circle at 30% 20%, oklch(0.78 0.15 320 / 0.35), transparent 60%);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 28px 96px}
+  .serif{font-family:'Instrument Serif',serif;font-weight:400;letter-spacing:-0.02em}
+  .mono{font-family:'JetBrains Mono',monospace;font-size:13px}
+  h1.serif{font-size:64px;line-height:1.05;margin:0 0 8px}
+  h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:36px;line-height:1.15;margin:64px 0 16px;letter-spacing:-0.02em;display:flex;align-items:baseline;gap:14px}
+  h2 .num{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--muted-fg);letter-spacing:.12em;text-transform:uppercase}
+  h3{font-size:17px;font-weight:600;margin:32px 0 10px}
+  p{margin:0 0 12px;color:var(--fg)}
+  .lede{font-size:18px;color:var(--muted-fg);max-width:62ch}
+
+  /* hero */
+  .hero{position:relative;border-radius:var(--radius-xl);padding:56px 44px;background:var(--gradient-hero);color:#fff;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .hero::after{content:"";position:absolute;inset:0;background:var(--gradient-ai-glow);pointer-events:none}
+  .hero .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.15);padding:6px 12px;border-radius:999px;backdrop-filter:blur(8px)}
+  .hero h1{color:#fff}
+  .hero p{color:rgba(255,255,255,.85);max-width:48ch}
+  .logo{display:inline-flex;align-items:center;gap:12px;color:#fff;font-family:'Instrument Serif',serif;font-size:22px}
+
+  /* logo mark svg sizing */
+  .mark{width:36px;height:36px;display:inline-block}
+
+  /* grids */
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  @media (max-width:780px){.g3,.g4{grid-template-columns:repeat(2,1fr)}.hero{padding:36px 24px}h1.serif{font-size:44px}}
+
+  /* color swatch */
+  .swatch{border-radius:var(--radius-lg);padding:18px;border:1px solid var(--border);background:#fff;box-shadow:var(--shadow-sm)}
+  .chip{height:64px;border-radius:var(--radius-md);margin-bottom:12px;border:1px solid var(--border)}
+  .swatch .name{font-weight:600;font-size:14px}
+  .swatch .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted-fg);margin-top:2px;word-break:break-all}
+
+  /* token row */
+  .token{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius-md);background:#fff}
+  .token .dot{width:28px;height:28px;border-radius:8px;border:1px solid var(--border);flex:none}
+
+  /* type specimens */
+  .spec{padding:24px;border:1px solid var(--border);border-radius:var(--radius-lg);background:#fff}
+  .spec .label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-fg);font-weight:600;margin-bottom:8px}
+
+  /* component previews */
+  .device{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-xl);padding:18px;box-shadow:var(--shadow-md)}
+  .topbar{display:flex;align-items:center;gap:12px;padding:8px 4px 16px}
+  .avatar{width:32px;height:32px;border-radius:999px;background:var(--gradient-hero);display:grid;place-items:center;color:#fff;font-weight:600;font-size:13px}
+  .search{flex:1;height:36px;border-radius:999px;background:var(--muted);display:flex;align-items:center;padding:0 14px;color:var(--muted-fg);font-size:13px;gap:8px}
+  .compose{height:36px;padding:0 14px;border-radius:999px;background:var(--primary);color:var(--primary-fg);font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;border:0;cursor:pointer}
+
+  .row{display:flex;gap:12px;padding:14px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--border);position:relative;margin-bottom:10px}
+  .row.unread{box-shadow:inset 4px 0 0 var(--primary)}
+  .row .av{width:36px;height:36px;border-radius:999px;background:oklch(0.92 0.04 290);flex:none;display:grid;place-items:center;font-weight:600;color:var(--primary);font-size:13px}
+  .row .body{flex:1;min-width:0}
+  .row .head{display:flex;justify-content:space-between;font-size:13px;color:var(--muted-fg)}
+  .row .from{font-weight:600;color:var(--fg)}
+  .row.unread .from{font-weight:700}
+  .row .subj{font-size:14px;font-weight:500;margin-top:2px}
+  .row .prev{font-size:13px;color:var(--muted-fg);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row .meta{display:flex;gap:6px;margin-top:8px;align-items:center}
+  .label{font-size:11px;padding:3px 8px;border-radius:999px;background:var(--muted);color:var(--muted-fg);font-weight:500}
+  .label.ai{background:color-mix(in oklab, var(--ai) 18%, transparent);color:oklch(0.40 0.14 320);display:inline-flex;align-items:center;gap:4px}
+
+  /* AI summary card */
+  .ai-card{position:relative;padding:20px;border-radius:var(--radius-lg);background:var(--muted);overflow:hidden;border:1px solid var(--border)}
+  .ai-card::before{content:"";position:absolute;inset:0;background:var(--gradient-ai-glow);pointer-events:none}
+  .ai-card .lab{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.40 0.14 320)}
+  .ai-card .text{font-family:'Instrument Serif',serif;font-style:italic;font-size:18px;line-height:1.4;margin:10px 0 8px;position:relative}
+  .ai-card .foot{font-size:12px;color:var(--muted-fg);position:relative}
+
+  /* tab bar */
+  .tabbar{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:16px;padding:8px;border-radius:var(--radius-xl);background:#fff;border:1px solid var(--border)}
+  .tab{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px;border-radius:var(--radius-md);font-size:11px;color:var(--muted-fg);font-weight:500}
+  .tab.on{color:var(--primary);background:color-mix(in oklab, var(--primary) 8%, transparent)}
+
+  /* do/don't */
+  .rule{padding:16px 18px;border-radius:var(--radius-md);border:1px solid var(--border);background:#fff;display:flex;gap:10px;align-items:flex-start}
+  .rule.do{border-left:3px solid var(--success)}
+  .rule.dont{border-left:3px solid var(--destructive)}
+  .rule .k{font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-fg);min-width:42px}
+
+  hr{border:0;border-top:1px solid var(--border);margin:48px 0}
+
+  footer{margin-top:64px;text-align:center;color:var(--muted-fg);font-family:'Instrument Serif',serif;font-style:italic;font-size:18px}
+
+  /* sparkle */
+  .sparkle{display:inline-block;width:12px;height:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 32 32" fill="none">
+        <rect x="3" y="8" width="22" height="16" rx="5" stroke="white" stroke-width="2"/>
+        <path d="M5 11 L14 18 Q14 18 14 18 Q14 18 14 18 Q14 18 14 18" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M5 11 Q14 18 23 11" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M11 17 Q14 19.5 17 17" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".85"/>
+        <circle cx="27" cy="6" r="2.6" fill="white"/>
+        <circle cx="27" cy="6" r="1" fill="oklch(0.70 0.16 320)"/>
+      </svg>
+      MailMind
+    </div>
+    <div style="position:relative;margin-top:36px">
+      <span class="tag">Brand Guidelines · v1.0</span>
+      <h1 class="serif" style="margin-top:14px">Inbox, with a mind of its own.</h1>
+      <p>MailMind is an AI-first universal email client — Gmail, Office 365, Yahoo, AOL, IMAP — wrapped in one calm, adorable interface. These guidelines define how it should always look and feel.</p>
+    </div>
+  </section>
+
+  <!-- ESSENCE -->
+  <h2><span class="num">01</span> Essence</h2>
+  <p class="lede">Email is stressful. MailMind is the antidote — calm, intelligent, universal, and just a little bit adorable. Voice is friendly and lowercase-leaning. Short sentences. Plain words.</p>
+  <div class="grid g4" style="margin-top:18px">
+    <div class="swatch"><div class="name">Calm</div><div class="meta">soft surfaces, no shouting</div></div>
+    <div class="swatch"><div class="name">Intelligent</div><div class="meta">AI does the heavy lifting</div></div>
+    <div class="swatch"><div class="name">Universal</div><div class="meta">one inbox, every provider</div></div>
+    <div class="swatch"><div class="name">Adorable</div><div class="meta">warm, almost playful</div></div>
+  </div>
+
+  <!-- LOGO -->
+  <h2><span class="num">02</span> Logo</h2>
+  <p class="lede">A rounded envelope with a gentle smile, and a soft spark above-right — the AI bit. 24×24 grid, 2px strokes, fully rounded joins.</p>
+  <div class="grid g3" style="margin-top:18px">
+    <div class="swatch" style="display:grid;place-items:center;padding:36px;background:var(--bg)">
+      <svg viewBox="0 0 32 32" width="96" height="96" fill="none">
+        <rect x="3" y="8" width="22" height="16" rx="5" stroke="oklch(0.62 0.18 290)" stroke-width="2"/>
+        <path d="M5 11 Q14 18 23 11" stroke="oklch(0.62 0.18 290)" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M11 17 Q14 19.5 17 17" stroke="oklch(0.62 0.18 290)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".85"/>
+        <circle cx="27" cy="6" r="2.6" fill="oklch(0.70 0.16 320)"/>
+      </svg>
+    </div>
+    <div class="swatch" style="display:grid;place-items:center;padding:36px;background:oklch(0.20 0.02 280)">
+      <svg viewBox="0 0 32 32" width="96" height="96" fill="none">
+        <rect x="3" y="8" width="22" height="16" rx="5" stroke="white" stroke-width="2"/>
+        <path d="M5 11 Q14 18 23 11" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M11 17 Q14 19.5 17 17" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".85"/>
+        <circle cx="27" cy="6" r="2.6" fill="oklch(0.78 0.15 320)"/>
+      </svg>
+    </div>
+    <div class="swatch" style="display:grid;place-items:center;padding:36px;background:var(--gradient-hero)">
+      <svg viewBox="0 0 32 32" width="96" height="96" fill="none">
+        <rect x="3" y="8" width="22" height="16" rx="5" stroke="white" stroke-width="2"/>
+        <path d="M5 11 Q14 18 23 11" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M11 17 Q14 19.5 17 17" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".85"/>
+        <circle cx="27" cy="6" r="2.6" fill="white"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- COLOR -->
+  <h2><span class="num">03</span> Color</h2>
+  <p class="lede">All tokens defined in <span class="mono">oklch</span>. Warm off-white background. Lavender primary. Apricot accent. A dedicated AI pink that's <em>earned</em>, never decorative.</p>
+
+  <h3>Core palette</h3>
+  <div class="grid g4">
+    <div class="swatch"><div class="chip" style="background:oklch(0.99 0.005 95)"></div><div class="name">Background</div><div class="meta">oklch(0.99 0.005 95)</div></div>
+    <div class="swatch"><div class="chip" style="background:oklch(0.20 0.02 280)"></div><div class="name">Foreground</div><div class="meta">oklch(0.20 0.02 280)</div></div>
+    <div class="swatch"><div class="chip" style="background:oklch(0.62 0.18 290)"></div><div class="name">Primary · Lavender</div><div class="meta">oklch(0.62 0.18 290)</div></div>
+    <div class="swatch"><div class="chip" style="background:oklch(0.85 0.13 75)"></div><div class="name">Accent · Apricot</div><div class="meta">oklch(0.85 0.13 75)</div></div>
+    <div class="swatch"><div class="chip" style="background:oklch(0.96 0.01 280)"></div><div class="name">Muted</div><div class="meta">oklch(0.96 0.01 280)</div></div>
+    <div class="swatch"><div class="chip" style="background:oklch(0.70 0.16 320);box-shadow:var(--shadow-ai)"></div><div class="name">AI · Special</div><div class="meta">oklch(0.70 0.16 320)</div></div>
+    <div class="swatch"><div class="chip" style="background:oklch(0.72 0.14 160)"></div><div class="name">Success</div><div class="meta">oklch(0.72 0.14 160)</div></div>
+    <div class="swatch"><div class="chip" style="background:oklch(0.60 0.20 25)"></div><div class="name">Destructive</div><div class="meta">oklch(0.60 0.20 25)</div></div>
+  </div>
+
+  <h3>Gradients</h3>
+  <div class="grid g2">
+    <div class="swatch"><div class="chip" style="background:var(--gradient-hero);height:100px"></div><div class="name">--gradient-hero</div><div class="meta">lavender → AI pink, 135°</div></div>
+    <div class="swatch" style="background:var(--muted);position:relative;overflow:hidden"><div class="chip" style="background:var(--gradient-ai-glow);height:100px;border:0"></div><div class="name">--gradient-ai-glow</div><div class="meta">soft halo on AI surfaces</div></div>
+  </div>
+
+  <!-- TYPE -->
+  <h2><span class="num">04</span> Typography</h2>
+  <p class="lede">Instrument Serif for moments of meaning. Inter for everything else. JetBrains Mono for code & metadata.</p>
+
+  <div class="grid g2" style="margin-top:18px">
+    <div class="spec">
+      <div class="label">Display · Instrument Serif 400</div>
+      <div class="serif" style="font-size:56px;line-height:1.05">read less,<br/>mean more.</div>
+    </div>
+    <div class="spec">
+      <div class="label">H1 / Page title</div>
+      <div class="serif" style="font-size:32px;line-height:1.15">your inbox, today</div>
+      <div class="label" style="margin-top:18px">H2 / Inter 600</div>
+      <div style="font-size:22px;font-weight:600">Three threads need a reply</div>
+      <div class="label" style="margin-top:18px">Body / Inter 400 · 15/1.55</div>
+      <p style="margin:6px 0 0">MailMind reads your messages, summarizes the long ones, drafts the replies you would've written anyway, and quietly buries everything that doesn't matter.</p>
+      <div class="label" style="margin-top:18px">Mono</div>
+      <div class="mono">--primary: oklch(0.62 0.18 290);</div>
+    </div>
+  </div>
+
+  <!-- TOKENS -->
+  <h2><span class="num">05</span> Spacing, Radius, Elevation</h2>
+  <p class="lede">4px base scale. Rounded by default — MailMind is <em>soft</em>. Shadows are warm, never gray; lavender-tinted at the largest tier.</p>
+  <div class="grid g3" style="margin-top:18px">
+    <div class="swatch"><div class="chip" style="background:#fff;border-radius:6px;height:48px"></div><div class="name">--radius-sm · 6px</div><div class="meta">inline chips</div></div>
+    <div class="swatch"><div class="chip" style="background:#fff;border-radius:12px;height:48px"></div><div class="name">--radius-md · 12px</div><div class="meta">inputs, buttons</div></div>
+    <div class="swatch"><div class="chip" style="background:#fff;border-radius:18px;height:48px"></div><div class="name">--radius-lg · 18px</div><div class="meta">cards, bubbles</div></div>
+    <div class="swatch"><div class="chip" style="background:#fff;border-radius:28px;height:48px"></div><div class="name">--radius-xl · 28px</div><div class="meta">modals, sheets</div></div>
+    <div class="swatch"><div class="chip" style="background:#fff;border-radius:999px;height:48px"></div><div class="name">--radius-pill</div><div class="meta">tags, switchers</div></div>
+    <div class="swatch"><div class="chip" style="background:#fff;border-radius:18px;height:48px;box-shadow:var(--shadow-lg);border:0"></div><div class="name">--shadow-lg</div><div class="meta">lavender-tinted</div></div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <h2><span class="num">06</span> Core Components</h2>
+  <p class="lede">A peek at how MailMind actually feels. Mobile-first, PWA-ready, three tabs only — Inbox, Search, Labels. No tasks. No calendar. Just email.</p>
+
+  <div class="grid g2" style="margin-top:18px;align-items:start">
+    <div class="device">
+      <div class="topbar">
+        <div class="avatar">a</div>
+        <div class="search">⌕ search across all accounts</div>
+        <button class="compose">✦ compose</button>
+      </div>
+
+      <div class="ai-card">
+        <div class="lab">✦ summary</div>
+        <div class="text">Sara confirmed Thursday at 3, asked you to bring the deck, and is fine with the new pricing. Marco still needs an answer on the contractor.</div>
+        <div class="foot">based on 7 messages · regenerate</div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="row unread">
+        <div class="av">SK</div>
+        <div class="body">
+          <div class="head"><span class="from">Sara Kessler</span><span>2:14 pm</span></div>
+          <div class="subj">Re: Thursday review — bring the deck</div>
+          <div class="prev">Sounds good — 3pm works. Could you bring the latest deck so we can…</div>
+          <div class="meta"><span class="label">work</span><span class="label ai">✦ priority</span></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="av" style="background:oklch(0.92 0.04 75);color:oklch(0.45 0.13 75)">MV</div>
+        <div class="body">
+          <div class="head"><span class="from">Marco Vidal</span><span>11:02 am</span></div>
+          <div class="subj">Contractor question</div>
+          <div class="prev">Hey — just wanted to confirm whether we're going with the original quote or…</div>
+          <div class="meta"><span class="label">freelance</span></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="av" style="background:oklch(0.92 0.04 160);color:oklch(0.45 0.12 160)">YH</div>
+        <div class="body">
+          <div class="head"><span class="from">Yahoo Finance</span><span>9:30 am</span></div>
+          <div class="subj">Your weekly market digest</div>
+          <div class="prev">Markets closed mixed this week. Here's what mattered most…</div>
+          <div class="meta"><span class="label">newsletters</span></div>
+        </div>
+      </div>
+
+      <div class="tabbar">
+        <div class="tab on">✉ Inbox</div>
+        <div class="tab">⌕ Search</div>
+        <div class="tab">▤ Labels</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="spec">
+        <div class="label">AI Summary card</div>
+        <p style="margin:0 0 12px;color:var(--muted-fg);font-size:13px">Appears at the top of any thread with more than 3 messages. Soft AI halo, serif italic body, sparkle label.</p>
+        <div class="ai-card">
+          <div class="lab">✦ summary</div>
+          <div class="text">A four-line summary, in serif italic, that earns its space.</div>
+          <div class="foot">based on N messages · regenerate</div>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="spec">
+        <div class="label">Buttons</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <button class="compose">✦ compose</button>
+          <button class="compose" style="background:var(--accent);color:var(--accent-fg)">archive</button>
+          <button class="compose" style="background:transparent;color:var(--fg);border:1px solid var(--border)">cancel</button>
+          <button class="compose" style="background:var(--destructive)">delete</button>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="spec">
+        <div class="label">AI action bar (compose)</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="label ai">✦ draft reply</span>
+          <span class="label ai">✦ shorten</span>
+          <span class="label ai">✦ friendlier</span>
+          <span class="label ai">✦ translate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DO DON'T -->
+  <h2><span class="num">07</span> Do & Don't</h2>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="rule do"><div class="k">do</div><div>Lead with whitespace. Let the page breathe.</div></div>
+    <div class="rule dont"><div class="k">don't</div><div>Use blue for primary — that's every other email app.</div></div>
+    <div class="rule do"><div class="k">do</div><div>Use serif sparingly — one moment of meaning per screen.</div></div>
+    <div class="rule dont"><div class="k">don't</div><div>Add calendar, tasks, contacts, or notes. Ever.</div></div>
+    <div class="rule do"><div class="k">do</div><div>Mark every AI moment with the sparkle and <span class="mono">--ai</span> color.</div></div>
+    <div class="rule dont"><div class="k">don't</div><div>Use robot, brain, or wand icons for AI.</div></div>
+    <div class="rule do"><div class="k">do</div><div>Default to soft shadows and rounded corners.</div></div>
+    <div class="rule dont"><div class="k">don't</div><div>Wrap everything in a card. Some things are just text.</div></div>
+  </div>
+
+  <hr/>
+
+  <footer>MailMind — read less, mean more.</footer>
+
+</div>
+</body>
+</html>

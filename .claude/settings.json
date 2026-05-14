@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "description": "MailMind project-level Claude Code settings. Hooks enforce CLAUDE.md §4 (standards) and §8 (definition of done).",
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Glob(**)",
+      "Grep(**)",
+      "Edit(./**)",
+      "Write(./**)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)",
+      "Bash(pnpm:*)",
+      "Bash(git:*)",
+      "Bash(gh:*)",
+      "Bash(prisma:*)",
+      "Bash(prettier:*)",
+      "Bash(tsc:*)",
+      "Bash(vitest:*)",
+      "Bash(playwright:*)",
+      "Bash(vercel:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./.env.production)",
+      "Edit(./.env)",
+      "Edit(./.env.local)",
+      "Edit(./.env.production)",
+      "Write(./.env)",
+      "Write(./.env.local)",
+      "Write(./.env.production)",
+      "Bash(rm:-rf:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(git:push:--force:*)",
+      "Bash(git:push:-f:*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/session-start.mjs"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/post-edit.mjs"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/pre-bash.mjs"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/stop.mjs"
+          }
+        ]
+      }
+    ]
+  }
+}
